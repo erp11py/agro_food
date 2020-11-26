@@ -1,0 +1,18 @@
+include MANIFEST.in
+include requirements.txt
+include *.json
+include *.md
+include *.py
+include *.txt
+recursive-include agro_food *.css
+recursive-include agro_food *.csv
+recursive-include agro_food *.html
+recursive-include agro_food *.ico
+recursive-include agro_food *.js
+recursive-include agro_food *.json
+recursive-include agro_food *.md
+recursive-include agro_food *.png
+recursive-include agro_food *.py
+recursive-include agro_food *.svg
+recursive-include agro_food *.txt
+recursive-exclude agro_food *.pyc
