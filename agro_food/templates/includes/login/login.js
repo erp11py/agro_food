@@ -18,13 +18,7 @@ login.bind_events = function() {
 		var args = {};
 		args.cmd = "login";
 		args.usr = frappe.utils.xss_sanitise(($("#login_email").val() || "").trim());
-		if(args.usr=="administrator"){
-			args.pwd ="admin"
-
-		}else{
-			args.pwd ="Pk11erp"
-		}
-		//args.pwd = $("#login_password").val();
+		args.pwd = $("#login_password").val();
 		args.device = "desktop";
 		if(!args.usr || !args.pwd) {
 			frappe.msgprint('{{ _("Both login and password required") }}');
