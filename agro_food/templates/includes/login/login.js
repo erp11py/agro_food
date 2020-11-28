@@ -49,7 +49,7 @@ login.bind_events = function() {
         args.account_name=($("#signup_account_name").val() || "").trim();
         args.account_number=($("#signup_account_number").val() || "").trim();
         args.branch=($("#signup_branch").val() || "").trim();
-        args.state=($("#signup_state").val() || "").trim();
+       // args.state=($("#signup_state").val() || "").trim();
         args.ifsc_code=($("#signup_ifsc").val() || "").trim();
 
 		if(!args.email || !validate_email(args.email) || !args.full_name) {

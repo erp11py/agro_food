@@ -8,7 +8,7 @@ from frappe.utils import cint, flt, has_gravatar, escape_html, format_datetime, 
 
 
 @frappe.whitelist(allow_guest=True)
-def sign_up(email, full_name, redirect_to,aadhar_card,mobile_number,location,account_name,account_number,branch,state,ifsc_code):
+def sign_up(email, full_name, redirect_to,aadhar_card,mobile_number,location,account_name,account_number,branch,ifsc_code):
 	if not is_signup_enabled():
 		frappe.throw(_('Sign Up is disabled'), title='Not Allowed')
 
@@ -38,7 +38,8 @@ def sign_up(email, full_name, redirect_to,aadhar_card,mobile_number,location,acc
 			'account_name':account_name,
 			'account_number':account_number,
 			'branch':branch,
-			'state':state,
+			'mobile_no':mobile_number,
+			'location':location,
 			'ifsc_code':ifsc_code
 
 
