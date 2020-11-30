@@ -3,6 +3,8 @@ import frappe
 from frappe import msgprint, _
 from frappe.website.utils import is_signup_enabled
 from frappe.utils import cint, flt, has_gravatar, escape_html, format_datetime, now_datetime, get_formatted_email, today
+from frappe import utils
+
 
 
 
@@ -61,3 +63,33 @@ def sign_up(email, full_name, redirect_to,aadhar_card,mobile_number,location,acc
 		else:
 			return 2, _("Please ask your administrator to verify your sign-up")
 
+
+
+
+
+
+@frappe.whitelist(allow_guest=True)
+def create_po(set_warehouse=None,supplier=None,schedule_date=None,item_code=None,qty=None,rate=None):
+	po=address = frappe.get_doc({
+		"doctype": "Purchase Order",
+		"supplier":supplier,
+		"schedule_date":schedule_date,
+		"transaction_date":frappe.utils.today(),
+		"set_warehouse":set_warehouse
+	})
+	row =po.append("items", {})
+	row.item_code=item_code
+	row.qty=qty
+	row.rate=rate
+	row.schedule_date=schedule_date
+	row.warehouse=set_warehouse
+	po.flags.ignore_permissions = True
+	po.insert()
+	return "Purchase Order  created successfully"
+
+
+   
+
+
+
+                
